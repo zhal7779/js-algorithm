@@ -8,17 +8,22 @@ function solution (t,s) {
     const anagram = new Map(
         [...s].map(i => [i, 1])
       );
-
+    
 
     while(p1 <= t.length){
+        console.log(hash, anagram)
         if(p1 < s.length){
             hash.set(t[p1], 1);
             p1++;
             continue;
         } 
-        if([...anagram].every(([key, value])=> hash.get(key) === value)) {
-            answer++;
+
+        if(hash.size === anagram.size) {
+            if([...anagram].every(([key, value])=> hash.get(key) === value)) {
+                answer++;
+            }  
         }
+
         if(hash.get(t[p2]) > 1) {
             hash.set(t[p2] , hash.get(t[p2])-1);
         } else{ 
@@ -31,6 +36,7 @@ function solution (t,s) {
             hash.set(t[p1], 1);
         }
         p1++; p2++;
+        
     }
 
     return answer;
