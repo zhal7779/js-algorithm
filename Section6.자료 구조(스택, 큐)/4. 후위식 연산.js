@@ -19,7 +19,6 @@ function solution(str) {
             } else if(str[i] === '/') {
                 stack.push(ltNum / rtNum)
             } 
-            console.log(stack)
         }
 
     }
