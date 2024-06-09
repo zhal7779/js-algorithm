@@ -7,17 +7,19 @@ function solution(str) {
         if(!isNaN(str[i])) {
             stack.push(str[i]);
         } else {
-            let firstNum = stack.pop();
-            let secondNum = stack.pop();
+            let rtNum = Number(stack.pop());
+            let ltNum = Number(stack.pop());
+            console.l
             if(str[i] === '+') {
-                stack.push(firstNum + secondNum)
+                stack.push(ltNum + rtNum);
             } else if(str[i] === '-') {
-                stack.push(firstNum - secondNum)
+                stack.push(ltNum - rtNum)
             } else if(str[i] === '*') {
-                stack.push(firstNum * secondNum)
+                stack.push(ltNum * rtNum)
             } else if(str[i] === '/') {
-                stack.push(firstNum / secondNum)
+                stack.push(ltNum / rtNum)
             } 
+            console.log(stack)
         }
 
     }
