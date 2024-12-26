@@ -14,7 +14,7 @@ function count(mid, arr) {
 
 function solution(m, arr) {
   let answer = 0;
-  let lt = arr[arr.length - 1];
+  let lt = Math.max(...arr);
   let rt = arr.reduce((cur, acc) => cur + acc, 0);
 
   while (lt <= rt) {
