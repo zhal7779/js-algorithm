@@ -1,23 +1,23 @@
 function solution(arr) {
-  let answer = "NO",
-    flag = 0;
-  let total = arr.reduce((a, b) => a + b, 0);
-  let n = arr.length;
-  function DFS(L, sum) {
-    if (flag) return;
-    if (L === n) {
-      if (total - sum === sum) {
+  let answer = "NO";
+  const total = arr.reduce((acc, cur) => acc + cur, 0);
+
+  function recursion(i, sum) {
+    if (i === arr.length) {
+      if (sum === total - sum) {
+        console.log(sum);
         answer = "YES";
-        flag = 1;
       }
-    } else {
-      DFS(L + 1, sum + arr[L]);
-      DFS(L + 1, sum);
+      return;
     }
+
+    recursion(i + 1, sum + arr[i]);
+    recursion(i + 1, sum);
   }
-  DFS(0, 0);
+
+  recursion(0, 0);
   return answer;
 }
 
 let arr = [1, 3, 5, 6, 7, 10];
-console.log(solution(arr));
+console.log(solution(arr)); // 출력: NO
