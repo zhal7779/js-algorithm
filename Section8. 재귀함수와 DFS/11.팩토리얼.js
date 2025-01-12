@@ -1,15 +1,13 @@
 function solution(n) {
-  let answer = 1;
+  let answer = 0;
   function recursion(n) {
     if (n === 1) {
-      return;
+      return 1;
     } else {
-      answer = n * answer;
-      recursion(n - 1);
+      return n * recursion(n - 1);
     }
   }
-
-  recursion(n);
+  answer = recursion(n);
 
   return answer;
 }
